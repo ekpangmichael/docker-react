@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t weezyval/docker-react -f Dockerfile.dev .
+  
+script:
+  - docker run weezyval/docker-react npm run test -- --coverage
